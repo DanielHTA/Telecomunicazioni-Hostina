@@ -6,28 +6,23 @@
     <title>Telecomunicazioni</title>
     <style>
         body {
-            font-family: Serif, sans-serif;
-
-            background-color: #bbcbff;
+            font-family: Times New Roman, sans-serif;
+            background-color: #6b6b6b;
         }
         header {
-            background-color: #ffffff;
+            background-color: #00165e; /* Colore uguale al footer */
             color: rgb(255, 255, 255);
             padding: 5px 0;
             text-align: center;
         }
-        nav {
-            background-color: #ffffff;
-            padding: 10px;
-            text-align: center;
+        header h1 {
+            color: white; /* Colore bianco per il titolo */
         }
+      
         nav a {
             color: white;
             margin: 0 60px;
             text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
         }
         h1, h2 {
             color: #000000;
@@ -56,11 +51,56 @@
         footer {
             text-align: center;
             padding: 10px 0;
-            background-color: #0328a0;
-            color: white;
+            background-color: #00165e;
+            color: rgb(160, 160, 160);
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+        .calculator {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+        }
+        .calculator h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #adadad;
+            border-radius: 5px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3f9c44;
         }
     </style>
 </head>
@@ -70,32 +110,108 @@
     <h1>Telecomunicazioni</h1>
 </header>
 
-<nav>
-    <a href="#"></a>
-    <a href="#"></a>
-    <a href="#"></a>
-</nav>
+<section id="1">
+    <h2>Leggi di Ohm</h2>
+    <p>La legge di Ohm descrive la relazione tra la tensione, la corrente e la resistenza in un circuito elettrico. La formula fondamentale è:</p>
+    <p><strong>V = I × R</strong></p>
+    <p>Questo significa che la tensione (V) in un circuito è uguale alla corrente (I) che lo attraversa moltiplicata per la resistenza (R) del circuito. La legge di Ohm può essere utilizzata per calcolare uno dei tre parametri (tensione, corrente o resistenza) se si conoscono gli altri due.</p>
+</section>
 
-<section id="">
+<section id="2">
     <h2>Prima legge di Kirchhoff o Legge dei Nodi</h2>
     <h7>La prima legge di Kirchhoff riguarda un qualsiasi nodo del circuito. Essa asserisce che la somma algebrica delle intensità di corrente di tutte le correnti confluenti in un nodo è nulla, se prendiamo con un dato segno le correnti entranti e con il segno opposto quelle uscenti.</h7>
 
-</section>
-
-<section id="">
     <h2>Seconda legge di Kirchhoff o Legge delle Maglie</h2>
-    <h7>La seconda legge di Kirchhoff riguarda ogni maglia che costituisce il circuito. Essa stabilisce che la somma algebrica delle forze elettromotrici presenti nei rami della maglia è uguale alla somma algebrica delle differenze di potenziale ai capi dei restori situati nei rami della maglia. Ricordando la legge di Ohm, la differenza di potenziale ai capi di un resistore di resistenza R percorso da corrente di intensità i vale proprio Ri</h7>
-
+    <h7>La seconda legge di Kirchhoff riguarda ogni maglia che costituisce il circuito. Essa stabilisce che la somma algebrica delle forze elettromotrici presenti nei rami della maglia è uguale alla somma algebrica delle differenze di potenziale ai capi dei resistori situati nei rami della maglia. Ricordando la legge di Ohm, la differenza di potenziale ai capi di un resistore di resistenza R percorso da corrente di intensità i vale proprio Ri.</h7>
 </section>
 
-<section id="">
-
+<section id="3">
+    <h2>Calcolatrice Legge di Ohm</h2>
+    <div class="calculator">
+        <div class="input-group">
+            <label for="tensione">Tensione (V)</label>
+            <input type="number" id="tensione" placeholder="Inserisci la tensione (V)">
+        </div>
+        <div class="input-group">
+            <label for="resistenza">Resistenza (Ω)</label>
+            <input type="number" id="resistenza" placeholder="Inserisci la resistenza (Ω)">
+        </div>
+        <div class="input-group">
+            <label for="intensita">Intensità (A)</label>
+            <input type="number" id="intensita" placeholder="Inserisci l'intensità (A)">
+        </div>
+        <button onclick="calcola()">Calcola</button>
+        <div class="result" id="risultato"></div>
+    </div>
 </section>
+
+<section id="4">
+    <h2>Calcolatrice Legge di Kirchhoff</h2>
+    <div class="calculator">
+        <div class="input-group">
+            <label for="fem">Forza Elettromotrice (V)</label>
+            <input type="number" id="fem" placeholder="Inserisci la forza elettromotrice (V)">
+        </div>
+        <div class="input-group">
+            <label for="resistenza2">Resistenza Totale (Ω)</label>
+            <input type="number" id="resistenza2" placeholder="Inserisci la resistenza totale (Ω)">
+        </div>
+        <div class="input-group">
+            <label for="corrente">Intensità Corrente (A)</label>
+            <input type="number" id="corrente" placeholder="Inserisci l'intensità della corrente (A)">
+        </div>
+        <button onclick="calcolaKirchhoff()">Calcola</button>
+        <div class="result" id="risultatoKirchhoff"></div>
+    </div>
+</section>
+
+<script>
+    function calcolaKirchhoff() {
+        var fem = parseFloat(document.getElementById('fem').value);
+        var resistenza2 = parseFloat(document.getElementById('resistenza2').value);
+        var corrente = parseFloat(document.getElementById('corrente').value);
+        var risultato = document.getElementById('risultatoKirchhoff');
+        
+        if (fem && resistenza2) {
+            corrente = fem / resistenza2;
+            risultato.innerHTML = 'Intensità Corrente (A): ' + corrente.toFixed(2);
+        } else if (fem && corrente) {
+            resistenza2 = fem / corrente;
+            risultato.innerHTML = 'Resistenza Totale (Ω): ' + resistenza2.toFixed(2);
+        } else if (resistenza2 && corrente) {
+            fem = corrente * resistenza2;
+            risultato.innerHTML = 'Forza Elettromotrice (V): ' + fem.toFixed(2);
+        } else {
+            risultato.innerHTML = 'Per favore, inserisci due valori.';
+        }
+    }
+</script>
 
 <footer>
-    <p>&copy; 2024 - Telecomunicazioni
-    </p>
+    <p>&copy; 2024 - Telecomunicazioni</p>
 </footer>
+
+<script>
+    function calcola() {
+        var tensione = parseFloat(document.getElementById('tensione').value);
+        var resistenza = parseFloat(document.getElementById('resistenza').value);
+        var intensita = parseFloat(document.getElementById('intensita').value);
+        var risultato = document.getElementById('risultato');
+        
+        if (tensione && resistenza) {
+            intensita = tensione / resistenza;
+            risultato.innerHTML = 'Intensità (A): ' + intensita.toFixed(2);
+        } else if (tensione && intensita) {
+            resistenza = tensione / intensita;
+            risultato.innerHTML = 'Resistenza (Ω): ' + resistenza.toFixed(2);
+        } else if (resistenza && intensita) {
+            tensione = resistenza * intensita;
+            risultato.innerHTML = 'Tensione (V): ' + tensione.toFixed(2);
+        } else {
+            risultato.innerHTML = 'Per favore, inserisci due valori.';
+        }
+    }
+</script>
 
 </body>
 </html>
