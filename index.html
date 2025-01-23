@@ -126,6 +126,21 @@
 </section>
 
 <section id="3">
+    <h2>Sovrapposizione degli Effetti</h2>
+    <p>Il principio di sovrapposizione è uno degli aspetti fondamentali nell'analisi dei circuiti lineari. Secondo questo principio, la risposta di un circuito a più sorgenti indipendenti di energia è uguale alla somma delle risposte individuali causate da ciascuna sorgente, considerate separatamente, mentre le altre sorgenti sono sostituite con il loro equivalente a circuito aperto (per le sorgenti di tensione) o cortocircuitato (per le sorgenti di corrente).</p>
+    
+    <h3>Passaggi per applicare la Sovrapposizione:</h3>
+    <ul>
+        <li></strong> Sostituire tutte le sorgenti di corrente con un cortocircuito e tutte le sorgenti di tensione con un circuito aperto, tranne quella che si sta analizzando.</li>
+        <li></strong> Calcolare la risposta del circuito (ad esempio, la corrente o la tensione) dovuta solo a una sorgente attiva.</li>
+        <li></strong> Ripetere il processo per tutte le sorgenti attive del circuito.</li>
+        <li></strong> Sommare tutte le risposte ottenute per trovare la risposta complessiva del circuito.</li>
+    </ul>
+
+    <p>Questo principio è utile in circuiti complessi con più sorgenti, in quanto semplifica notevolmente il calcolo della risposta totale del sistema.</p>
+</section>
+
+<section id="4">
     <h2>Calcolatrice Legge di Ohm</h2>
     <div class="calculator">
         <div class="input-group">
@@ -145,7 +160,7 @@
     </div>
 </section>
 
-<section id="4">
+<section id="5">
     <h2>Calcolatrice Legge di Kirchhoff</h2>
     <div class="calculator">
         <div class="input-group">
@@ -164,6 +179,10 @@
         <div class="result" id="risultatoKirchhoff"></div>
     </div>
 </section>
+
+<footer>
+    <p>&copy; 2024 - Telecomunicazioni</p>
+</footer>
 
 <script>
     function calcolaKirchhoff() {
@@ -186,10 +205,6 @@
         }
     }
 </script>
-
-<footer>
-    <p>&copy; 2024 - Telecomunicazioni</p>
-</footer>
 
 <script>
     function calcola() {
