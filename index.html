@@ -118,29 +118,6 @@
 </section>
 
 <section id="2">
-    <h2>Prima legge di Kirchhoff o Legge dei Nodi</h2>
-    <h7>La prima legge di Kirchhoff riguarda un qualsiasi nodo del circuito. Essa asserisce che la somma algebrica delle intensità di corrente di tutte le correnti confluenti in un nodo è nulla, se prendiamo con un dato segno le correnti entranti e con il segno opposto quelle uscenti.</h7>
-
-    <h2>Seconda legge di Kirchhoff o Legge delle Maglie</h2>
-    <h7>La seconda legge di Kirchhoff riguarda ogni maglia che costituisce il circuito. Essa stabilisce che la somma algebrica delle forze elettromotrici presenti nei rami della maglia è uguale alla somma algebrica delle differenze di potenziale ai capi dei resistori situati nei rami della maglia. Ricordando la legge di Ohm, la differenza di potenziale ai capi di un resistore di resistenza R percorso da corrente di intensità i vale proprio Ri.</h7>
-</section>
-
-<section id="3">
-    <h2>Sovrapposizione degli Effetti</h2>
-    <p>Il principio di sovrapposizione è uno degli aspetti fondamentali nell'analisi dei circuiti lineari. Secondo questo principio, la risposta di un circuito a più sorgenti indipendenti di energia è uguale alla somma delle risposte individuali causate da ciascuna sorgente, considerate separatamente, mentre le altre sorgenti sono sostituite con il loro equivalente a circuito aperto (per le sorgenti di tensione) o cortocircuitato (per le sorgenti di corrente).</p>
-    
-    <h3>Passaggi per applicare la Sovrapposizione:</h3>
-    <ul>
-        <li></strong> Sostituire tutte le sorgenti di corrente con un cortocircuito e tutte le sorgenti di tensione con un circuito aperto, tranne quella che si sta analizzando.</li>
-        <li></strong> Calcolare la risposta del circuito (ad esempio, la corrente o la tensione) dovuta solo a una sorgente attiva.</li>
-        <li></strong> Ripetere il processo per tutte le sorgenti attive del circuito.</li>
-        <li></strong> Sommare tutte le risposte ottenute per trovare la risposta complessiva del circuito.</li>
-    </ul>
-
-    <p>Questo principio è utile in circuiti complessi con più sorgenti, in quanto semplifica notevolmente il calcolo della risposta totale del sistema.</p>
-</section>
-
-<section id="4">
     <h2>Calcolatrice Legge di Ohm</h2>
     <div class="calculator">
         <div class="input-group">
@@ -160,7 +137,15 @@
     </div>
 </section>
 
-<section id="5">
+<section id="3">
+    <h2>Prima legge di Kirchhoff o Legge dei Nodi</h2>
+    <h7>La prima legge di Kirchhoff riguarda un qualsiasi nodo del circuito. Essa asserisce che la somma algebrica delle intensità di corrente di tutte le correnti confluenti in un nodo è nulla, se prendiamo con un dato segno le correnti entranti e con il segno opposto quelle uscenti.</h7>
+
+    <h2>Seconda legge di Kirchhoff o Legge delle Maglie</h2>
+    <h7>La seconda legge di Kirchhoff riguarda ogni maglia che costituisce il circuito. Essa stabilisce che la somma algebrica delle forze elettromotrici presenti nei rami della maglia è uguale alla somma algebrica delle differenze di potenziale ai capi dei resistori situati nei rami della maglia. Ricordando la legge di Ohm, la differenza di potenziale ai capi di un resistore di resistenza R percorso da corrente di intensità i vale proprio Ri.</h7>
+</section>
+
+<section id="4">
     <h2>Calcolatrice Legge di Kirchhoff</h2>
     <div class="calculator">
         <div class="input-group">
@@ -178,6 +163,21 @@
         <button onclick="calcolaKirchhoff()">Calcola</button>
         <div class="result" id="risultatoKirchhoff"></div>
     </div>
+</section>
+
+<section id="5">
+    <h2>Sovrapposizione degli Effetti</h2>
+    <p>Il principio di sovrapposizione è uno degli aspetti fondamentali nell'analisi dei circuiti lineari. Secondo questo principio, la risposta di un circuito a più sorgenti indipendenti di energia è uguale alla somma delle risposte individuali causate da ciascuna sorgente, considerate separatamente, mentre le altre sorgenti sono sostituite con il loro equivalente a circuito aperto (per le sorgenti di tensione) o cortocircuitato (per le sorgenti di corrente).</p>
+    
+    <h3>Passaggi per applicare la Sovrapposizione:</h3>
+    <ul>
+        <li>Sostituire tutte le sorgenti di corrente con un cortocircuito e tutte le sorgenti di tensione con un circuito aperto, tranne quella che si sta analizzando.</li>
+        <li>Calcolare la risposta del circuito (ad esempio, la corrente o la tensione) dovuta solo a una sorgente attiva.</li>
+        <li>Ripetere il processo per tutte le sorgenti attive del circuito.</li>
+        <li>Somma tutte le risposte ottenute per trovare la risposta complessiva del circuito.</li>
+    </ul>
+
+    <p>Questo principio è utile in circuiti complessi con più sorgenti, in quanto semplifica notevolmente il calcolo della risposta totale del sistema.</p>
 </section>
 
 <footer>
