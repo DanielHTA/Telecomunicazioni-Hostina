@@ -180,6 +180,41 @@
     <p>Questo principio è utile in circuiti complessi con più sorgenti, in quanto semplifica notevolmente il calcolo della risposta totale del sistema.</p>
 </section>
 
+<section id="6">
+    <h2>Calcolatrice per il Circuito con Due Tensioni</h2>
+    <p>Utilizza questa calcolatrice per calcolare le tensioni nei vari rami di un circuito con due tensioni applicate e tre resistenze.</p>
+    
+    <div class="calculator">
+        <div class="input-group">
+            <label for="ten1">Tensione 1 (V)</label>
+            <input type="number" id="ten1" placeholder="Inserisci la tensione 1 (V)">
+        </div>
+        <div class="input-group">
+            <label for="ten2">Tensione 2 (V)</label>
+            <input type="number" id="ten2" placeholder="Inserisci la tensione 2 (V)">
+        </div>
+        <div class="input-group">
+            <label for="res1">Resistenza 1 (Ω)</label>
+            <input type="number" id="res1" placeholder="Inserisci la resistenza 1 (Ω)">
+        </div>
+        <div class="input-group">
+            <label for="res2">Resistenza 2 (Ω)</label>
+            <input type="number" id="res2" placeholder="Inserisci la resistenza 2 (Ω)">
+        </div>
+        <div class="input-group">
+            <label for="res3">Resistenza 3 (Ω)</label>
+            <input type="number" id="res3" placeholder="Inserisci la resistenza 3 (Ω)">
+        </div>
+        <button id="calculateButton">Calcola</button>
+        
+        <div class="result">
+            <p>V1 (Tensione 1 nel ramo): <span id="result1"></span> V</p>
+            <p>V2 (Tensione 2 nel ramo): <span id="result2"></span> V</p>
+            <p>Vout (Tensione Totale): <span id="result3"></span> V</p>
+        </div>
+    </div>
+</section>
+
 <footer>
     <p>&copy; 2024 - Telecomunicazioni</p>
 </footer>
@@ -204,9 +239,7 @@
             risultato.innerHTML = 'Per favore, inserisci due valori.';
         }
     }
-</script>
 
-<script>
     function calcola() {
         var tensione = parseFloat(document.getElementById('tensione').value);
         var resistenza = parseFloat(document.getElementById('resistenza').value);
@@ -225,6 +258,23 @@
         } else {
             risultato.innerHTML = 'Per favore, inserisci due valori.';
         }
+    }
+
+    document.getElementById('calculateButton').onclick = function() {
+        const ten1 = parseFloat(document.getElementById('ten1').value);
+        const ten2 = parseFloat(document.getElementById('ten2').value);
+        const res1 = parseFloat(document.getElementById('res1').value);
+        const res2 = parseFloat(document.getElementById('res2').value);
+        const res3 = parseFloat(document.getElementById('res3').value);
+
+        const v1 = parseFloat((ten1 * (((res2 * res3) / (res2 + res3)) / (res1 + ((res2 * res3) / (res2 + res3))))).toFixed(2));
+        const v2 = parseFloat((ten2 * (((res2 * res3) / (res2 + res3)) / (res1 + ((res2 * res3) / (res2 + res3))))).toFixed(2));
+
+        const vout = v1 + v2;
+
+        document.getElementById('result1').innerHTML = v1;
+        document.getElementById('result2').innerHTML = v2;
+        document.getElementById('result3').innerHTML = vout;
     }
 </script>
 
