@@ -219,68 +219,55 @@
     </div>
 </section>
 
+<section id="7">
+    <h2>Condensatori e Induttori</h2>
+    <p><strong>Condensatori</strong> e <strong>induttori</strong> sono dispositivi che immagazzinano energia in campi elettrici e magnetici rispettivamente.</p>
+    
+    <h3>Condensatori</h3>
+    <p>Immagazzinano energia elettrica. Quando si caricano, la tensione aumenta esponenzialmente fino a raggiungere il valore finale.</p>
+    <p><strong>Formula energia:</strong></p>
+    <p><code>E = (1/2) C V²</code></p>
+    <h4>Esempi:</h4>
+    <ul>
+        <li><strong>Alimentatori</strong> (filtrano fluttuazioni di tensione).</li>
+        <li><strong>Motori elettrici</strong> (migliorano il fattore di potenza).</li>
+    </ul>
+    <h4>Carica e scarica:</h4>
+    <p>La carica segue <code>V(t) = Vmax(1 - e^(-t/τ))</code> e la scarica <code>V(t) = V0 e^(-t/τ)</code>, con <code>τ = R · C</code>.</p>
+    
+    <h3>Induttori</h3>
+    <p>Immagazzinano energia sotto forma di campo magnetico. Si oppongono ai cambiamenti di corrente.</p>
+    <p><strong>Formula tensione:</strong></p>
+    <p><code>V = L di/dt</code></p>
+    <h4>Esempi:</h4>
+    <ul>
+        <li><strong>Filtri elettronici</strong> (selez
+
+ionano frequenze).</li>
+        <li><strong>Trasformatori</strong> (cambiano livelli di tensione).</li>
+    </ul>
+    <h4>Carica e scarica:</h4>
+    <p>La corrente cresce seguendo <code>I(t) = Imax(1 - e^(-t/τ))</code> e decresce con <code>I(t) = I0 e^(-t/τ)</code>, dove <code>τ = L / R</code>.</p>
+    
+    <h3>Serie e Parallelo</h3>
+    <h4>Condensatori:</h4>
+    <ul>
+        <li><strong>In Serie:</strong> <code>1/Ceq = 1/C1 + 1/C2 + ...</code></li>
+        <li><strong>In Parallelo:</strong> <code>Ceq = C1 + C2 + ...</code></li>
+    </ul>
+    
+    <h4>Induttori:</h4>
+    <ul>
+        <li><strong>In Serie:</strong> <code>Leq = L1 + L2 + ...</code></li>
+        <li><strong>In Parallelo:</strong> <code>1/Leq = 1/L1 + 1/L2 + ...</code></li>
+    </ul>
+    
+    <p>In generale, i condensatori in serie riducono la capacità, mentre quelli in parallelo la aumentano. Gli induttori in serie aumentano l'induttanza, mentre quelli in parallelo la riducono.</p>
+</section>
+
 <footer>
     <p>&copy; 2024 - Telecomunicazioni</p>
 </footer>
-
-<script>
-    function calcolaKirchhoff() {
-        var fem = parseFloat(document.getElementById('fem').value);
-        var resistenza2 = parseFloat(document.getElementById('resistenza2').value);
-        var corrente = parseFloat(document.getElementById('corrente').value);
-        var risultato = document.getElementById('risultatoKirchhoff');
-        
-        if (fem && resistenza2) {
-            corrente = fem / resistenza2;
-            risultato.innerHTML = 'Intensità Corrente (A): ' + corrente.toFixed(2);
-        } else if (fem && corrente) {
-            resistenza2 = fem / corrente;
-            risultato.innerHTML = 'Resistenza Totale (Ω): ' + resistenza2.toFixed(2);
-        } else if (resistenza2 && corrente) {
-            fem = corrente * resistenza2;
-            risultato.innerHTML = 'Forza Elettromotrice (V): ' + fem.toFixed(2);
-        } else {
-            risultato.innerHTML = 'Per favore, inserisci due valori.';
-        }
-    }
-
-    function calcola() {
-        var tensione = parseFloat(document.getElementById('tensione').value);
-        var resistenza = parseFloat(document.getElementById('resistenza').value);
-        var intensita = parseFloat(document.getElementById('intensita').value);
-        var risultato = document.getElementById('risultato');
-        
-        if (tensione && resistenza) {
-            intensita = tensione / resistenza;
-            risultato.innerHTML = 'Intensità (A): ' + intensita.toFixed(2);
-        } else if (tensione && intensita) {
-            resistenza = tensione / intensita;
-            risultato.innerHTML = 'Resistenza (Ω): ' + resistenza.toFixed(2);
-        } else if (resistenza && intensita) {
-            tensione = resistenza * intensita;
-            risultato.innerHTML = 'Tensione (V): ' + tensione.toFixed(2);
-        } else {
-            risultato.innerHTML = 'Per favore, inserisci due valori.';
-        }
-    }
-
-    document.getElementById('calculateButton').onclick = function() {
-        const ten1 = parseFloat(document.getElementById('ten1').value);
-        const ten2 = parseFloat(document.getElementById('ten2').value);
-        const res1 = parseFloat(document.getElementById('res1').value);
-        const res2 = parseFloat(document.getElementById('res2').value);
-        const res3 = parseFloat(document.getElementById('res3').value);
-
-        const v1 = parseFloat((ten1 * (((res2 * res3) / (res2 + res3)) / (res1 + ((res2 * res3) / (res2 + res3))))).toFixed(2));
-        const v2 = parseFloat((ten2 * (((res2 * res3) / (res2 + res3)) / (res1 + ((res2 * res3) / (res2 + res3))))).toFixed(2));
-
-        const vout = v1 + v2;
-
-        document.getElementById('result1').innerHTML = v1;
-        document.getElementById('result2').innerHTML = v2;
-        document.getElementById('result3').innerHTML = vout;
-    }
-</script>
 
 </body>
 </html>
