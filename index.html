@@ -275,7 +275,7 @@ ionano frequenze).</li>
     <label for="V">Tensione (V) in Volt:</label>
     <input type="number" id="V" placeholder="Tensione (V)" step="any">
     <br>
-    <button onclick="calcolaEnergiaCondensatore()">Calcola Energia Condensatore</button>
+    <button class="calcoloBtn" onclick="calcolaEnergiaCondensatore()">Calcola Energia Condensatore</button>
     <p id="energiaCondensatore">Energia: </p>
     
     <!-- Induttore -->
@@ -286,7 +286,7 @@ ionano frequenze).</li>
     <label for="I">Corrente (I) in Ampere:</label>
     <input type="number" id="I" placeholder="Corrente (A)" step="any">
     <br>
-    <button onclick="calcolaEnergiaInduttore()">Calcola Energia Induttore</button>
+    <button class="calcoloBtn" onclick="calcolaEnergiaInduttore()">Calcola Energia Induttore</button>
     <p id="energiaInduttore">Energia: </p>
     
     <!-- Tensione Condensatore -->
@@ -294,7 +294,7 @@ ionano frequenze).</li>
     <label for="tC">Tempo (t) in secondi:</label>
     <input type="number" id="tC" placeholder="Tempo (s)" step="any">
     <br>
-    <button onclick="calcolaTensioneCondensatore()">Calcola Tensione Condensatore</button>
+    <button class="calcoloBtn" onclick="calcolaTensioneCondensatore()">Calcola Tensione Condensatore</button>
     <p id="tensioneCondensatore">Tensione: </p>
     
     <!-- Corrente Induttore -->
@@ -302,9 +302,30 @@ ionano frequenze).</li>
     <label for="tI">Tempo (t) in secondi:</label>
     <input type="number" id="tI" placeholder="Tempo (s)" step="any">
     <br>
-    <button onclick="calcolaCorrenteInduttore()">Calcola Corrente Induttore</button>
+    <button class="calcoloBtn" onclick="calcolaCorrenteInduttore()">Calcola Corrente Induttore</button>
     <p id="correnteInduttore">Corrente: </p>
 </section>
+
+<style>
+    /* Styling for the buttons */
+    .calcoloBtn {
+        background-color: #4CAF50; /* Green background */
+        color: white; /* White text */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Padding for button */
+        text-align: center; /* Center text */
+        text-decoration: none; /* No underline */
+        display: inline-block; /* Make button inline */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        margin: 5px 0; /* Add some margin to space out the buttons */
+        width: auto; /* Set width to auto for normal size */
+    }
+
+    .calcoloBtn:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+</style>
 
 <script>
 // Funzione per calcolare energia condensatore
@@ -369,6 +390,7 @@ function calcolaCorrenteInduttore() {
     document.getElementById('correnteInduttore').textContent = `Corrente: ${It.toFixed(4)} Ampere`;
 }
 </script>
+
 
 
 <footer>
