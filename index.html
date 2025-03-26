@@ -264,6 +264,112 @@ ionano frequenze).</li>
     
     <p>In generale, i condensatori in serie riducono la capacità, mentre quelli in parallelo la aumentano. Gli induttori in serie aumentano l'induttanza, mentre quelli in parallelo la riducono.</p>
 </section>
+<section id="8">
+    <h2>Calcolatrice Condensatori e Induttori</h2>
+    
+    <!-- Condensatore -->
+    <h3>Calcolo Energia del Condensatore</h3>
+    <label for="C">Capacità (C) in Farad:</label>
+    <input type="number" id="C" placeholder="Capacità (F)" step="any">
+    <br>
+    <label for="V">Tensione (V) in Volt:</label>
+    <input type="number" id="V" placeholder="Tensione (V)" step="any">
+    <br>
+    <button onclick="calcolaEnergiaCondensatore()">Calcola Energia Condensatore</button>
+    <p id="energiaCondensatore">Energia: </p>
+    
+    <!-- Induttore -->
+    <h3>Calcolo Energia dell'Induttore</h3>
+    <label for="L">Induttanza (L) in Henry:</label>
+    <input type="number" id="L" placeholder="Induttanza (H)" step="any">
+    <br>
+    <label for="I">Corrente (I) in Ampere:</label>
+    <input type="number" id="I" placeholder="Corrente (A)" step="any">
+    <br>
+    <button onclick="calcolaEnergiaInduttore()">Calcola Energia Induttore</button>
+    <p id="energiaInduttore">Energia: </p>
+    
+    <!-- Tensione Condensatore -->
+    <h3>Calcolo Tensione di Carica del Condensatore</h3>
+    <label for="tC">Tempo (t) in secondi:</label>
+    <input type="number" id="tC" placeholder="Tempo (s)" step="any">
+    <br>
+    <button onclick="calcolaTensioneCondensatore()">Calcola Tensione Condensatore</button>
+    <p id="tensioneCondensatore">Tensione: </p>
+    
+    <!-- Corrente Induttore -->
+    <h3>Calcolo Corrente nell'Induttore</h3>
+    <label for="tI">Tempo (t) in secondi:</label>
+    <input type="number" id="tI" placeholder="Tempo (s)" step="any">
+    <br>
+    <button onclick="calcolaCorrenteInduttore()">Calcola Corrente Induttore</button>
+    <p id="correnteInduttore">Corrente: </p>
+</section>
+
+<script>
+// Funzione per calcolare energia condensatore
+function calcolaEnergiaCondensatore() {
+    const C = parseFloat(document.getElementById('C').value);
+    const V = parseFloat(document.getElementById('V').value);
+    
+    if (isNaN(C) || isNaN(V)) {
+        alert("Inserisci valori validi per Capacità e Tensione.");
+        return;
+    }
+    
+    const energia = 0.5 * C * Math.pow(V, 2);
+    document.getElementById('energiaCondensatore').textContent = `Energia: ${energia.toFixed(4)} Joules`;
+}
+
+// Funzione per calcolare energia induttore
+function calcolaEnergiaInduttore() {
+    const L = parseFloat(document.getElementById('L').value);
+    const I = parseFloat(document.getElementById('I').value);
+    
+    if (isNaN(L) || isNaN(I)) {
+        alert("Inserisci valori validi per Induttanza e Corrente.");
+        return;
+    }
+    
+    const energia = 0.5 * L * Math.pow(I, 2);
+    document.getElementById('energiaInduttore').textContent = `Energia: ${energia.toFixed(4)} Joules`;
+}
+
+// Funzione per calcolare tensione condensatore
+function calcolaTensioneCondensatore() {
+    const t = parseFloat(document.getElementById('tC').value);
+    const Vmax = parseFloat(document.getElementById('V').value); // Tensione massima
+    const R = 1; // Resistenza di esempio (può essere modificata)
+    const C = parseFloat(document.getElementById('C').value);
+    const tau = R * C;
+    
+    if (isNaN(t) || isNaN(Vmax) || isNaN(tau)) {
+        alert("Inserisci valori validi.");
+        return;
+    }
+
+    const Vt = Vmax * (1 - Math.exp(-t / tau));
+    document.getElementById('tensioneCondensatore').textContent = `Tensione: ${Vt.toFixed(4)} Volt`;
+}
+
+// Funzione per calcolare corrente induttore
+function calcolaCorrenteInduttore() {
+    const t = parseFloat(document.getElementById('tI').value);
+    const Imax = parseFloat(document.getElementById('I').value); // Corrente massima
+    const L = parseFloat(document.getElementById('L').value); // Induttanza
+    const R = 1; // Resistenza di esempio (può essere modificata)
+    const tau = L / R;
+
+    if (isNaN(t) || isNaN(Imax) || isNaN(tau)) {
+        alert("Inserisci valori validi.");
+        return;
+    }
+
+    const It = Imax * (1 - Math.exp(-t / tau));
+    document.getElementById('correnteInduttore').textContent = `Corrente: ${It.toFixed(4)} Ampere`;
+}
+</script>
+
 
 <footer>
     <p>&copy; 2024 - Telecomunicazioni</p>
